@@ -9,6 +9,8 @@ const PULL_REQUEST_LABELS        = core.getInput( 'PULL_REQUEST_LABELS' );
 const SKIP_CI                    = toolkit.input.tobool( core.getInput( 'SKIP_CI' ) );
 const GITHUB_TOKEN               = core.getInput( 'GITHUB_TOKEN' );
 const GIT_URL                    = core.getInput( 'GIT_URL' );
+const GIT_USER                   = core.getInput( 'GIT_USER' );
+const GIT_EMAIL                  = core.getInput( 'GIT_EMAIL' );
 const RAW_REPOSITORIES           = core.getInput( 'REPOSITORIES' );
 const COMMIT_MESSAGE             = core.getInput( 'COMMIT_MESSAGE' );
 const COMMIT_MESSAGE_AS_PR_TITLE = toolkit.input.tobool( core.getInput( 'COMMIT_MESSAGE_AS_PR_TITLE' ) );
@@ -21,13 +23,13 @@ const GITHUB_WORKSPACE           = toolkit.input.env( 'GITHUB_WORKSPACE' );
 const WORKSPACE                  = toolkit.path.dirname( toolkit.path.dirname( GITHUB_WORKSPACE ) ) + '/workflow-sync/';
 
 module.exports = {
-	GIT_USER: 'Workflow Sync Bot',
-	GIT_EMAIL: 'githubactionbot+workflowsync@gmail.com',
 	AUTO_CREATE_NEW_BRANCH,
 	COMMIT_EACH_FILE,
 	DRY_RUN,
 	GITHUB_TOKEN,
 	GIT_URL,
+  GIT_USER,
+	GIT_EMAIL,
 	RAW_REPOSITORIES,
 	PULL_REQUEST,
 	PULL_REQUEST_LABELS,
